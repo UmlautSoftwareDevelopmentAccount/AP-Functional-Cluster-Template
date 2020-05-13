@@ -9,7 +9,8 @@ dependencies = [
     dependency('gtest', required: true)
 ]
 
-lib = library('test_framework_lib',
+lib = library(
+    'test_framework_lib',
     srcs,
     include_directories: ['./'],
     dependencies: dependencies

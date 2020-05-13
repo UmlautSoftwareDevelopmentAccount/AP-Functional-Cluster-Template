@@ -1,13 +1,5 @@
-# Created by https://www.gitignore.io/api/c++,bazel,python
-# Edit at https://www.gitignore.io/?templates=c++,bazel,python
-
-### Bazel ###
-# gitignore template for Bazel build system
-# website: https://bazel.build/
-
-# Ignore all bazel-* symlinks. There is no full list since this can change
-# based on the name of the directory bazel is cloned into.
-/bazel-*
+# Created by https://www.gitignore.io/api/c++,python,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=c++,python,visualstudiocode
 
 ### C++ ###
 # Prerequisites
@@ -147,4 +139,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# End of https://www.gitignore.io/api/c++,bazel,python
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/c++,python,visualstudiocode
