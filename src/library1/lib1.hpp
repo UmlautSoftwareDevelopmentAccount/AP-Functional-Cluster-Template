@@ -1,9 +1,24 @@
-namespace library1
-{
+#ifndef SRC_LIBRARY1_LIB1
+#define SRC_LIBRARY1_LIB1
+#include <string>
+
+namespace library1 {
 /**
- * @brief 
- * 
+ * @brief
+ *
  * @return int The Answer
  */
 int answer();
-} // namespace library1
+
+/**
+ * @brief
+ *
+ */
+struct Interface
+{
+    virtual ~Interface()                       = default;
+    virtual int Function(const std::string& s) = 0;
+};
+
+}  // namespace library1
+#endif /* SRC_LIBRARY1_LIB1 */

@@ -1,11 +1,40 @@
 #include <catch2/catch.hpp>
+#include <catch2/trompeloeil.hpp>
 
 #include <lib1.hpp>
+
+struct Mock : public library1::Interface
+{
+    MAKE_MOCK1(Function, int(const std::string&), override);
+};
+
+int InterfaceTest(library1::Interface& i)
+{
+    int acc = 0;
+
+    acc += i.Function("One");
+    acc += i.Function("Three");
+    acc += i.Function("Two");
+
+    return acc;
+}
 
 TEST_CASE("Answer is given", "[answer]")
 {
     // REQUIRE(library1::answer() == 123);
     REQUIRE(library1::answer() == 42);
+}
+
+TEST_CASE("Mock test")
+{
+    Mock m;
+
+    trompeloeil::sequence seq;
+    REQUIRE_CALL(m, Function("One")).RETURN(1).IN_SEQUENCE(seq);
+    REQUIRE_CALL(m, Function("Three")).RETURN(3).IN_SEQUENCE(seq);
+    REQUIRE_CALL(m, Function("Two")).RETURN(2).IN_SEQUENCE(seq);
+
+    CHECK(InterfaceTest(m) == 6);
 }
 
 TEST_CASE("Matchers test")

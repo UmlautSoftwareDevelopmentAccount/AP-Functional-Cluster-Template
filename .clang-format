@@ -42,7 +42,7 @@ AlignTrailingComments: true
 AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortIfStatementsOnASingleLine: false
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterDefinitionReturnType: None
@@ -69,7 +69,7 @@ BraceWrapping:
   AfterStruct:     true
   AfterUnion:      false
   BeforeCatch:     true
-  BeforeElse:      false
+  BeforeElse:      true
 # shall work in clang-format-10, but does not...
 #  BeforeLambdaBody: false
 #  BeforeWhile:     false
