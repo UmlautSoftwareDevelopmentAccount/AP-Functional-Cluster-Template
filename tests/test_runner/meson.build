@@ -4,8 +4,7 @@ srcs = [
 
 dependencies = [
     dependency('catch2', required: true),
-    dependency('trompeloeil', required: true),
-    dependency('gtest', required: true)
+    dependency('trompeloeil', required: true)
 ]
 
 lib = library(
