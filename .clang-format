@@ -10,8 +10,7 @@ TabWidth: 4
 BreakStringLiterals: false
 # https://www.python.org/dev/peps/pep-0350/
 CommentPragmas:  '^ (NOTE|TODO|FIXME|XXX|BUG):'
-# FIXME: align to used test/mock framework
-NamespaceMacros: ['TEST', 'TEST_F']
+NamespaceMacros: ['TEST_CASE', 'TEMPLATE_TEST_CASE']
 # BasedOnStyle: ''
 IncludeCategories:
   - Regex:           '.*'
