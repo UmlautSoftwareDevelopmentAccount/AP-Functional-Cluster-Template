@@ -4,6 +4,9 @@ project('ap-functional-cluster-template', 'cpp',
     default_options : ['cpp_std=c++2a']
 )
 
+# additional compilation arguments
+add_global_arguments('-Wall', '-Wextra', '-O2', language : 'cpp')
+
 # install dependencies
 conan = find_program('conan', required : true)
 pkg_config = find_program('pkg-config', required : true)
