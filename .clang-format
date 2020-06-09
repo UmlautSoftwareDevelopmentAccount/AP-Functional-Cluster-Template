@@ -10,8 +10,7 @@ TabWidth: 4
 BreakStringLiterals: false
 # https://www.python.org/dev/peps/pep-0350/
 CommentPragmas:  '^ (NOTE|TODO|FIXME|XXX|BUG):'
-# FIXME: align to used test/mock framework
-NamespaceMacros: ['TEST', 'TEST_F']
+# NamespaceMacros: ['', '']
 # BasedOnStyle: ''
 IncludeCategories:
   - Regex:           '.*'
@@ -42,7 +41,7 @@ AlignTrailingComments: true
 AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortIfStatementsOnASingleLine: false
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterDefinitionReturnType: None
@@ -69,7 +68,7 @@ BraceWrapping:
   AfterStruct:     true
   AfterUnion:      false
   BeforeCatch:     true
-  BeforeElse:      false
+  BeforeElse:      true
 # shall work in clang-format-10, but does not...
 #  BeforeLambdaBody: false
 #  BeforeWhile:     false
