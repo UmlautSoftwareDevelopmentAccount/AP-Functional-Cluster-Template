@@ -7,7 +7,11 @@ The template repository for Adaptive Platform Functional Cluster
 ```sh
 
 mkdir build && cd build
-meson setup --pkg-config-path .
+meson setup -Db_coverage=true --pkg-config-path .
 ninja
 
-```
+### Coverage
+
+Run tests and coverage:
+ninja test
+ninja coverage-html
