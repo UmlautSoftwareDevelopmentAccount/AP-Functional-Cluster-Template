@@ -21,7 +21,6 @@ int InterfaceTest(library1::Interface& i)
 
 TEST_CASE("Answer is given", "[answer]")
 {
-    // REQUIRE(library1::answer() == 123);
     REQUIRE(library1::answer() == 42);
 }
 
@@ -47,7 +46,6 @@ TEST_CASE("Matchers test")
 
 SCENARIO("vectors can be sized and resized", "[vector]")
 {
-
     GIVEN("A vector with some items")
     {
         std::vector<int> v(5);

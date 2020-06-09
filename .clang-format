@@ -10,7 +10,7 @@ TabWidth: 4
 BreakStringLiterals: false
 # https://www.python.org/dev/peps/pep-0350/
 CommentPragmas:  '^ (NOTE|TODO|FIXME|XXX|BUG):'
-NamespaceMacros: ['TEST_CASE', 'TEMPLATE_TEST_CASE']
+# NamespaceMacros: ['', '']
 # BasedOnStyle: ''
 IncludeCategories:
   - Regex:           '.*'
