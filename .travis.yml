@@ -1,0 +1,21 @@
+os: linux
+dist: xenial
+language: cpp
+
+services:
+- docker
+
+before_install:
+- docker pull bburda/autosar-adaptive-platform-dev-env
+- docker run -d -t --name ap-travis -v $PWD:/home/dev/workspace bburda/autosar-adaptive-platform-dev-env 
+
+before_script:
+# set ownership of /home/dev to dev user
+- docker exec -u 0 ap-travis /bin/bash -c "chown -R dev:dev /home/dev"
+
+script:
+- docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; mkdir build && cd build ; meson setup -Db_coverage=true --pkg-config-path . ; ninja test ; ninja coverage-xml"
+
+after_success:
+# Codecov
+- bash <(curl -s https://codecov.io/bash) -X gcov
