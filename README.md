@@ -1,4 +1,7 @@
 # AP-Functional-Cluster-Template
+
+[![Build Status](https://travis-ci.org/UmlautSoftwareDevelopmentAccount/AP-Functional-Cluster-Template.svg?branch=master)](https://travis-ci.org/UmlautSoftwareDevelopmentAccount/AP-Functional-Cluster-Template) [![codecov](https://codecov.io/gh/UmlautSoftwareDevelopmentAccount/AP-Functional-Cluster-Template/branch/master/graph/badge.svg)](https://codecov.io/gh/UmlautSoftwareDevelopmentAccount/AP-Functional-Cluster-Template)
+
 The template repository for Adaptive Platform Functional Cluster
 
 
