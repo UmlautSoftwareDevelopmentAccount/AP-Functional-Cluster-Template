@@ -26,7 +26,7 @@ subdir('src')
 subdir('tests')
 
 pkg_mod = import('pkgconfig')
-pkg_mod.generate(libraries : ap_coretypes_lib,
+pkg_mod.generate(libraries : [],
                  name : meson.project_name(),
                  version : meson.project_version(),
                  filebase : meson.project_name(),

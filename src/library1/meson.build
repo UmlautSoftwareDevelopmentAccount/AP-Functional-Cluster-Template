@@ -4,8 +4,8 @@ srcs = [
 
 lib = library('library1',
     srcs,
-    include_directories: include_directories(['./'],
-    install: true)
+    include_directories: ['./'],
+    install: true
 )
 
 library1_dep = declare_dependency(
