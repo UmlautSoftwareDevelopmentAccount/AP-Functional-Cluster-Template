@@ -8,5 +8,6 @@ exec = executable(
     dependencies: [
         library1_dep,
         dependency('spdlog')
-    ]
+    ],
+    install: true
 )

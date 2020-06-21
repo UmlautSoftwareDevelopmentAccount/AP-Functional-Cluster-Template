@@ -1,7 +1,13 @@
 project('ap-functional-cluster-template', 'cpp',
     version: '0.1',
     license: 'MIT',
-    default_options : ['cpp_std=c++2a']
+    default_options : [
+        'cpp_std=c++2a',
+        'warning_level=3',
+        'werror=true',
+        'pkg_config_path=.',
+        'b_coverage=true'
+    ]
 )
 
 # install dependencies
@@ -14,8 +20,16 @@ else
 	message(conan_out.stdout())
 endif
 
-pkg_config_path = meson.build_root()
+inc_dirs = include_directories('include')
 
 subdir('src')
 subdir('tests')
 
+pkg_mod = import('pkgconfig')
+pkg_mod.generate(libraries : [library1],
+                 name : meson.project_name(),
+                 version : meson.project_version(),
+                 filebase : meson.project_name(),
+                 description : 'The template repository for Adaptive Platform Functional Cluster')
+
+install_subdir('include/ara', install_dir : 'include') # install include/ara into <prefix_path>/include
