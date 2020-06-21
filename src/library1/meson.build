@@ -2,13 +2,14 @@ srcs = [
     'lib1.cpp',
 ]
 
-lib = library(
-    'library1',
+library1 = library('library1',
     srcs,
-    include_directories: include_directories(['./'])
+    include_directories: ['./'],
+    install: true
 )
 
 library1_dep = declare_dependency(
-    link_with: lib,
+    version: meson.project_version(),
+    link_with: library1,
     include_directories: ['./']
 )
