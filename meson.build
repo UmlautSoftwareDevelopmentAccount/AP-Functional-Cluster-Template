@@ -2,12 +2,12 @@ project('ap-functional-cluster-template', 'cpp',
     version: '0.1',
     license: 'MIT',
     default_options : [
-		    'cpp_std=c++2a',
-		    'warning_level=3',
-        'werror=true',
-		    'optimization=2',
-        'pkg_config_path=.',
-        'b_coverage=true'
+		'cpp_std=c++2a',
+		'warning_level=3',
+		'werror=true',
+		'optimization=2',
+		'pkg_config_path=.',
+		'b_coverage=true'
     ]
 )
 
