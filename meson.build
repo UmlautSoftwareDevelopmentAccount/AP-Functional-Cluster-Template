@@ -38,7 +38,9 @@ add_global_arguments(
 # install dependencies
 conan = find_program('conan', required : true)
 pkg_config = find_program('pkg-config', required : true)
+doxygen = find_program('doxygen', required : true)
 conan_out = run_command('conan', 'install', '--build=missing', '-if', meson.build_root(), meson.source_root(), check: true)
+
 if conan_out.returncode() != 0
 	error(conan_out.stderr())
 else
