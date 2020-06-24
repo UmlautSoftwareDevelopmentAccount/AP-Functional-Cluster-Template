@@ -8,6 +8,8 @@ project('ap-functional-cluster-template', 'cpp',
 		'buildtype=debugoptimized',
 		'pkg_config_path=.',
 		'b_coverage=true'
+		'b_lto=true',
+		'b_pie=true'
     ]
 )
 
@@ -30,8 +32,6 @@ add_global_arguments(
 	'-Wduplicated-branches', # warn if if / else branches have duplicated code
 	'-Wlogical-op', # warn about logical operations being used where bitwise were probably wanted
 	'-Wuseless-cast', # warn if you perform a cast to the same type
-	'-pie', '-fpie', # address space layout optimization
-	'-flto', # standard link-time optimization
 	language : 'cpp'
 )
 
