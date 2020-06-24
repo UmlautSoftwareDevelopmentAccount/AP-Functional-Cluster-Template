@@ -5,7 +5,7 @@ project('ap-functional-cluster-template', 'cpp',
 		'cpp_std=c++2a',
 		'warning_level=3',
 		'werror=true',
-		'optimization=2',
+		'buildtype=debugoptimized',
 		'pkg_config_path=.',
 		'b_coverage=true'
     ]
