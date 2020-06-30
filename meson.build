@@ -28,12 +28,20 @@ add_global_arguments(
 	'-Wdouble-promotion', # warn if float is implicit promoted to double
 	'-Wformat=2', # warn on security issues around functions that format output
 	'-Wmisleading-indentation', # warn if indentation implies blocks where blocks do not exist
-	'-Wduplicated-cond', # warn if if / else chain has duplicated conditions
-	'-Wduplicated-branches', # warn if if / else branches have duplicated code
-	'-Wlogical-op', # warn about logical operations being used where bitwise were probably wanted
-	'-Wuseless-cast', # warn if you perform a cast to the same type
 	language : 'cpp'
 )
+
+cxx = meson.get_compiler('cpp')
+
+if cxx.get_id() == 'gcc'
+	add_global_arguments(
+		'-Wduplicated-cond', # warn if if / else chain has duplicated conditions
+		'-Wduplicated-branches', # warn if if / else branches have duplicated code
+		'-Wlogical-op', # warn about logical operations being used where bitwise were probably wanted
+		'-Wuseless-cast', # warn if you perform a cast to the same type
+		language : 'cpp'
+	)
+endif
 
 # install dependencies
 conan = find_program('conan', required : true)
