@@ -14,8 +14,8 @@ project('ap-functional-cluster-template', 'cpp',
 )
 
 # additional compilation arguments
+# TODO: re-enable '-Wshadow' while spdlog update the fmt
 add_global_arguments(
-	'-Wshadow', # warn whenever a local variable or type declaration shadows another variable, parameter or type,
 	'-Wnon-virtual-dtor', # warn the user if a class with virtual functions has a non-virtual destructor
 	'-Wold-style-cast', # warn for c-style casts
 	'-Wcast-align', # warn for potential performance problem casts
