@@ -14,7 +14,8 @@ before_script:
 - docker exec -u 0 ap-travis /bin/bash -c "chown -R dev:dev /home/dev"
 
 script:
-- docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; mkdir build && cd build ; meson setup ; ninja test ; ninja coverage-xml"
+- docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; ./tools/build_ci.sh -s"
+- docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; ./tools/build_ci.sh -c -s"
 
 after_success:
 # Codecov

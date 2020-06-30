@@ -14,8 +14,8 @@ project('ap-functional-cluster-template', 'cpp',
 )
 
 # additional compilation arguments
+# TODO: re-enable '-Wshadow' while spdlog update the fmt
 add_global_arguments(
-	'-Wshadow', # warn whenever a local variable or type declaration shadows another variable, parameter or type,
 	'-Wnon-virtual-dtor', # warn the user if a class with virtual functions has a non-virtual destructor
 	'-Wold-style-cast', # warn for c-style casts
 	'-Wcast-align', # warn for potential performance problem casts
@@ -28,12 +28,20 @@ add_global_arguments(
 	'-Wdouble-promotion', # warn if float is implicit promoted to double
 	'-Wformat=2', # warn on security issues around functions that format output
 	'-Wmisleading-indentation', # warn if indentation implies blocks where blocks do not exist
-	'-Wduplicated-cond', # warn if if / else chain has duplicated conditions
-	'-Wduplicated-branches', # warn if if / else branches have duplicated code
-	'-Wlogical-op', # warn about logical operations being used where bitwise were probably wanted
-	'-Wuseless-cast', # warn if you perform a cast to the same type
 	language : 'cpp'
 )
+
+cxx = meson.get_compiler('cpp')
+
+if cxx.get_id() == 'gcc'
+	add_global_arguments(
+		'-Wduplicated-cond', # warn if if / else chain has duplicated conditions
+		'-Wduplicated-branches', # warn if if / else branches have duplicated code
+		'-Wlogical-op', # warn about logical operations being used where bitwise were probably wanted
+		'-Wuseless-cast', # warn if you perform a cast to the same type
+		language : 'cpp'
+	)
+endif
 
 # install dependencies
 conan = find_program('conan', required : true)
