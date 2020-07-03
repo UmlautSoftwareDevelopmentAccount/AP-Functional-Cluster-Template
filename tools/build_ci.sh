@@ -136,9 +136,9 @@ function run_test() {
 }
 
 function run_coverage() {
-    green "Generate coverage xml now"
+    green "Generate coverage html now"
     cd ${TOPDIR}/build
-    ninja coverage-xml || die "generate coverage xml failure!"
+    ninja coverage-html || die "generate coverage html failure!"
 }
 
 parse_parameters "${@}"
