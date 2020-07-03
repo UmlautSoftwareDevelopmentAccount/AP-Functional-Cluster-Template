@@ -21,4 +21,4 @@ script:
 
 after_success:
 # Codecov
-- bash <(curl -s https://codecov.io/bash) -X gcov
+- bash <(curl -s https://codecov.io/bash) -X gcov -f build/meson-logs/coverage.xml
