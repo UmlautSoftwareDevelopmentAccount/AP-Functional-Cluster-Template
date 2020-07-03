@@ -16,7 +16,7 @@ before_script:
 script:
 - docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; ./tools/build_ci.sh -s"
 - docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; ./tools/build_ci.sh -c -s"
-# call the clang-format python wrapper to check, that code was properly formatted
+# call the clang-format python wrapper https://github.com/Sarcasm/run-clang-format to check, that code was properly formatted 
 - docker exec ap-travis /bin/bash -c "cd /home/dev/workspace/ ; python3 <(curl -s https://raw.githubusercontent.com/Sarcasm/run-clang-format/master/run-clang-format.py) -r src tests"
 
 after_success:
