@@ -5,10 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-    trompeloeil::set_reporter([](trompeloeil::severity s,
-                                 const char*           file,
-                                 uint64_t              line,
-                                 std::string const&    msg) {
+    trompeloeil::set_reporter([](trompeloeil::severity s, const char* file, uint64_t line, std::string const& msg) {
         std::ostringstream os;
         if (line)
         {
