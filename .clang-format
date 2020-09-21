@@ -2,7 +2,7 @@
 Language: Cpp
 # shall work in clang-format-10, but does not...
 #Standard: Cpp20
-ColumnLimit: 120
+ColumnLimit: 100
 UseTab: Never
 IndentWidth: 4
 TabWidth: 4
