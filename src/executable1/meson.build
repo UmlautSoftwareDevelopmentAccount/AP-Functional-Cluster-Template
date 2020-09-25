@@ -7,7 +7,7 @@ exec = executable(
     srcs,
     dependencies: [
         library1_dep,
-        dependency('spdlog')
+        dependency('spdlog', include_type: 'system')
     ],
     install: true
 )
