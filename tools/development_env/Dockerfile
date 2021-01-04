@@ -61,8 +61,8 @@ RUN apt -qq install -y \
        xterm \
        locales
 
-# Install Python packages: Meson, Conan and gcovr
-RUN pip3 install meson conan gcovr
+# Install Python packages: Meson, Conan, gcovr and Sphinx with traceability plugin
+RUN pip3 install meson conan gcovr Sphinx sphinxcontrib-traceability
 
 # Create user for development
 RUN useradd -m dev --uid=1000 && echo "dev:dev" | chpasswd
