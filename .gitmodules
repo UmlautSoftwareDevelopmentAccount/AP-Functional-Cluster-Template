@@ -1,4 +1,0 @@
-[submodule "CoreTypes"]
-	path = libs/core
-	url = https://github.com/UmlautSoftwareDevelopmentAccount/AP-CoreTypes.git
-	branch = master
