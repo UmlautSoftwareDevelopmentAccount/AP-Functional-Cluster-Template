@@ -34,13 +34,13 @@ https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remo
 
 ### Building library
 
-Go to any library root folder (which are submodules)
-i.e.: cd /home/dev/workspace/libs/core
+Go to source code root folder
+i.e.: cd /home/dev/workspace/core
 
 and then:
 
 mkdir build && cd build
-meson setup -Db_coverage=true --pkg-config-path .
+meson setup
 ninja
 
 ### Coverage
