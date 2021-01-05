@@ -27,6 +27,7 @@ add_global_arguments(
 	'-Wdouble-promotion', # warn if float is implicit promoted to double
 	'-Wformat=2', # warn on security issues around functions that format output
 	'-Wmisleading-indentation', # warn if indentation implies blocks where blocks do not exist
+	'-Wshadow',
 	language : 'cpp'
 )
 
