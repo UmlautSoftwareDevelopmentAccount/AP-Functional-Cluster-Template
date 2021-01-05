@@ -1,0 +1,32 @@
+trigger:
+- main
+- master
+pr:
+- main
+- master
+
+pool:
+  vmImage: 'ubuntu-20.04'
+
+container: 
+  image: bburda/autosar-adaptive-platform-dev-env
+  options: --user 0:0
+
+steps:
+- script: python3 <(curl -s https://raw.githubusercontent.com/Sarcasm/run-clang-format/master/run-clang-format.py) -r src include tests
+  displayName: "clang-format"
+- script: ./tools/build_ci.sh -c -s
+  displayName: "Build with Clang"
+- script: ./tools/build_ci.sh -s
+  displayName: "Build with GCC"
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk'
+  inputs:
+    packageType: sdk
+    version: 2.2.203
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'build/meson-logs/coverage.xml'
+    failIfCoverageEmpty: true
