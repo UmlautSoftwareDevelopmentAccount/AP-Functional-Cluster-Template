@@ -1,5 +1,5 @@
 # Base image is the Ubuntu Focal from Docker Hub
-FROM ubuntu:focal
+FROM ubuntu:hirsute
 
 LABEL maintainer="Bartosz Burda <Bartosz.Burda@umlaut.com>"
 
@@ -22,8 +22,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt -qq update && \
        wget \
        git \
        curl \
-       gcc-10 \
-       g++-10 \
+       gcc \
+       g++ \
        cmake \
        ninja-build \
        pkg-config \
@@ -36,33 +36,20 @@ RUN DEBIAN_FRONTEND=noninteractive apt -qq update && \
        python3-wheel \
        doxygen \
        graphviz \
-       clang-tidy
-# Yocto pkgs
-RUN apt -qq install -y \
-       gawk \
-       git-core \
-       diffstat \
-       unzip \
-       texinfo \
-       gcc-multilib \
-       build-essential \
-       chrpath \
-       socat \
-       cpio \
-       python3-pexpect \
-       xz-utils \
-       debianutils \
-       iputils-ping \
-       python3-git \
-       python3-jinja2 \
-       libegl1-mesa \
-       libsdl1.2-dev \
-       pylint3 \
-       xterm \
+       clang-tidy \ 
        locales
 
 # Install Python packages: Meson, Conan, gcovr and Sphinx with traceability plugin
 RUN pip3 install meson conan gcovr Sphinx sphinxcontrib-traceability
+
+# Setup locales
+RUN locale-gen "en_US.UTF-8"
+RUN dpkg-reconfigure --frontend=noninteractive locales
+RUN update-locale LANG=en_US.UTF-8
+
+ENV LC_ALL=en_US.UTF-8 \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8
 
 # Create user for development
 RUN useradd -m dev --uid=1000 && echo "dev:dev" | chpasswd
@@ -72,16 +59,6 @@ RUN chsh -s /bin/bash dev
 
 # Add user to sudo group
 RUN sudo usermod -aG sudo dev
-
-#set Locale, Yocto need UTF-8
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-        echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
-        dpkg-reconfigure --frontend=noninteractive locales && \
-        update-locale LANG=en_US.UTF-8
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
 
 # Set user and work directory
 USER dev
